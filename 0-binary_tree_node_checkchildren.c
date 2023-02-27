@@ -24,7 +24,21 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	temp->left = NULL;
 	temp->right = NULL;
 
-	/* Assuming you are an adopted  child :), who is your parent? */
+	/* try to set parent if there is space for another  child */
+	if (parent != NULL)
+	{
+		if (parent->left == NULL)
+			parent->left = temp;
+		else if (parent->right == NULL)
+			parent->right = temp;
+		else
+		{
+			printf("Can't add a third child to binary tree node.\n");
+			return (NULL);
+		}
+	}
+
+	/* now you are an adopted  child :), who is your parent? */
 	temp->parent = parent;
 	return (temp);
 }
