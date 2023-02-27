@@ -13,11 +13,11 @@ int binary_tree_is_full(const binary_tree_t *tree)
 		return (1);
 
 	/* check if children are empty */
-  	if (tree->left == NULL && tree->right == NULL)
-    	return (1);
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
 
 	/* recursively call the binary_tree_os_full check on both children */
-  	if ((tree->left != NULL) && (tree->right != NULL))
-    		return (binary_tree_is_full(tree->left) && binary_tree_is_full(tree->right));
+	if ((tree->left != NULL) && (tree->right != NULL))
+		return (binary_tree_is_full(tree->left) && binary_tree_is_full(tree->right));
 	return (0);
 }
