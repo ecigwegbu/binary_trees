@@ -16,6 +16,11 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	size_t treeHeight;
 	int isPerfect = 1;
 
+	if (tree == NULL)
+		return (0);
+	else if (tree->left == NULL && tree->right == NULL)
+		return (1);
+
 	/* get tree height */
 	treeHeight = bt_height(tree);
 
