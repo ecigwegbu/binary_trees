@@ -20,12 +20,17 @@ int binary_tree_balance(const binary_tree_t *tree)
 		return (0);
 
 	/* get left and right tree heights */
-	ltHeight = bt_height(tree->left);
-	rtHeight = bt_height(tree->right);
+	if (tree->left)
+		ltHeight = bt_height(tree->left) + 1;
+	else
+		ltHeight = 0;
+	if (tree->right)
+		rtHeight = bt_height(tree->right) + 1;
+	else
+		rtHeight = 0;
 
 	/* get the absolute difference */
-	balanceFactor = ltHeight >= rtHeight ?
-		(ltHeight - rtHeight) : (rtHeight - ltHeight);
+	balanceFactor = ltHeight - rtHeight;
 
 	return (balanceFactor);
 }
