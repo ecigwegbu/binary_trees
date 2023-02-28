@@ -1,33 +1,37 @@
 #include "binary_trees.h"
 
+void bt_delete(binary_tree_t *tree);
+
 /**
- * binary_tree_delete - delete a binary tree
+ * binary_tree_delete - delete a  binary tree
  * @tree: pointer to the root node of the binary tree
- * Return: NULL if successful
  */
 
-binary_tree_t binary_tree_delete(binary_tree_t *tree)
+void binary_tree_delete(binary_tree_t *tree)
 {
 	/* NULL check */
 	if (tree == NULL)
 		return;
 
-	func(tree->n);
-	del_node(tree->left);
-	del_node(tree->right);
+	bt_delete(tree);
 }
 
+/**
+ * bt_delete - delete a binary tree
+ * @tree: pointer to the root node of the binary tree
+ */
 
-binary_tree_t *del_node(binary_tree_t *node)
+void bt_delete(binary_tree_t *tree)
 {
-	binary_tree_t *tmpNode;
+	/* NULL check */
+	if (tree == NULL)
+		return;
 
-	if (node && node->parent && !node->left && !node->right)
+	if (tree && (!tree->left && !tree->right))
 	{
-		tmpNode = node->parent;
-		node->parent = NULL;
-		free(node);
+		printf("freeing %d...\n", tree->n); /* debug */
+		free(tree);
 	}
-
-	return (tmpNode);
+	bt_delete(tree->left);
+	bt_delete(tree->right);
 }
