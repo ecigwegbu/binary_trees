@@ -37,12 +37,10 @@ void bt_delete(binary_tree_t *tree)
 
 	bt_delete(tree->left);
 	bt_delete(tree->right);
-	if (tree && (!tree->left && !tree->right))
-	{
-		printf("freeing %d...\n", tree->n); /* debug */
-		tree->parent = NULL;
-		tree->left = NULL;
-		tree->right = NULL;
-		free(tree);
-	}
+
+	printf("freeing %d...\n", tree->n); /* debug */
+	tree->parent = NULL;
+	tree->left = NULL;
+	tree->right = NULL;
+	free(tree);
 }
