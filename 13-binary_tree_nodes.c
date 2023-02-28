@@ -3,7 +3,7 @@
 void bt_HasChild(const binary_tree_t *tree, size_t *hc);
 
 /**
- * binary_tree_HasChild - return the size of a binary tree
+ * binary_tree_nodes - return the number of nodes with at least one child
  * @tree: pointer to the root node of the binary tree
  * Return: the number of nodes with at least a child in the tree
  */
